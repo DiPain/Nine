@@ -3,6 +3,7 @@ import 'package:nine/src/Posts.dart';
 import 'package:nine/src/Pages.dart';
 
 
+
 class NineHome extends StatefulWidget{
   @override
   _NineHomeState createState() =>  _NineHomeState();
@@ -143,26 +144,29 @@ List<Widget> actions()=><Widget>[
     ],
   ); 
 
-  Widget postLoader() => Container(
-    color: Colors.black,   
-    child: new ListView.builder(
-      itemCount: Posts.postList.length,
-      itemBuilder: (BuildContext context, int indx){
-        if(indx == 0){
-          return tag(0);
-        }else{
-          return EachPost(indx-1);
-        }
-      },
-    ),
+  Widget postLoader() => 
+      Container(
+        color: Colors.black,   
+        child: ListView.builder(
+          itemCount: Posts.postList.length,
+          itemBuilder: (BuildContext context, int indx){
+            if(indx==0){
+              return tag(0);
+            }else{
+              return EachPost(indx-1);
+            }
+          },
+        )
   );
 
-  Widget tags() => new ListView.builder(
-    itemCount: Posts.tagList.length-1,
-    scrollDirection: Axis.horizontal,
-    itemBuilder: (BuildContext context, int index){
-      return tag(index);
-    },
+  Widget tags() =>Container(
+    child: ListView.builder(
+      itemCount: Posts.tagList.length-1,
+      scrollDirection: Axis.horizontal,
+      itemBuilder: (BuildContext context, int ind){
+        return tag(ind);
+      },
+    ),
   );
 
   Widget tag(int index) => Container(
