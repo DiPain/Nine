@@ -64,13 +64,13 @@ class _EachPostState extends State<EachPost> {
   );
 
   Widget actualPost() => Container(
-    height: 150,
+    width:double.infinity,
     decoration: new BoxDecoration(
-      color: Colors.grey[800],
-      image: new DecorationImage(
-        image: new AssetImage(Posts.postList[widget.postIndex][2])
-      ),
-    )
+      color: Colors.transparent,
+    ),
+    child: Image.asset(Posts.postList[widget.postIndex][2],
+      fit: BoxFit.fitWidth,
+    ),
   );
 
   Widget actionBar() =>Row(

@@ -54,7 +54,8 @@ class Posts{
   static const List<String> tagList= [
     'Lion King',
     'Once Upon a Time in Hollywood',
-    'Margot Robie'
+    'Margot Robie',
+    'Hello'
   ];
 }
 

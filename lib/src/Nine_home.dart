@@ -151,7 +151,7 @@ List<Widget> actions()=><Widget>[
           itemCount: Posts.postList.length,
           itemBuilder: (BuildContext context, int indx){
             if(indx==0){
-              return tag(0);
+              return tags();
             }else{
               return EachPost(indx-1);
             }
@@ -160,16 +160,34 @@ List<Widget> actions()=><Widget>[
   );
 
   Widget tags() =>Container(
-    child: ListView.builder(
-      itemCount: Posts.tagList.length-1,
-      scrollDirection: Axis.horizontal,
-      itemBuilder: (BuildContext context, int ind){
-        return tag(ind);
-      },
-    ),
+    width: 150,
+    height: 60,
+    child: 
+        ListView.builder(
+        itemCount: Posts.tagList.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (BuildContext context, int ind){
+          return tag(ind);
+        },
+      ),
+    
   );
 
-  Widget tag(int index) => Container(
-      color: Colors.white,
-      child: Text(Posts.tagList[index],),
+  Widget tag(int ind) => Row(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(
+              Radius.circular(22),
+            ),
+          ),
+          child: Padding(
+            padding: EdgeInsets.all(10),
+            child: Text(Posts.tagList[ind],)  
+          ),
+        ),
+        SizedBox(width: 5,)
+      ],
   );
